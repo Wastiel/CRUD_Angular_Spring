@@ -38,14 +38,30 @@
 - Compilação incremental
 	- Recompila somente o que foi alterado.
 - Instalar o angular material
+	- (Angular Material)[https://material.angular.io/]
 	- ng add @angular/material
 	- Vamos usar o indigo/pink, mas vamos customizar algumas coisas mais a frente
 	- Setamos o material typography como global
 	- abilitamos as animações do angular Material
 	- Atualizou alguns arquivos
+	- Podemos configurar a fonte caso necessário como parte do projeto e não no index.
 - 
 
 ## 03. Criando uma Toolbar na Página Principal
+- Vamos criar a página inicial do nosso projeto
+	- Vamos criar uma toolbar
+- Entramos no site do angular Material
+- (Angular Material)[https://material.angular.io/]
+	- Posterior vamos pegar a toolbar
+	- Import da toolbar
+		- import {MatToolbarModule} from '@angular/material/toolbar';
+	- Pegamos o codigo de um toolbar simples e colocamos no nosso app.component.html
+		````html
+		  <mat-toolbar>
+		    <span>My Application</span>
+		  </mat-toolbar>
+		````
+- 
 
 ## 04. Criando o Módulo de Cursos e Usando Roteamento com Lazy Loading
 
