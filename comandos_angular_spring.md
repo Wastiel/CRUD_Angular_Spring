@@ -55,6 +55,67 @@
 	````
 # Comandos SPRING
 
+- Instalar maven e java
+    - Ambos fazer apontamento de variavel de ambiente. 
+- Utilizar o spring start para gerar o projeto
+    - [START SPRING](https://start.spring.io/)
+    - Segui as seguintes configurações
+    - Project:
+        maven
+    - Lenguage
+        - Java
+    - Spring Boot:
+        - 3.2.5 (Snapshot)
+    - Project Metadata
+        - Group: com.loiane
+        - Artifact: crud-spring
+        - Java: 17
+    - Dependencias:
+        - Spring Web
+        - Lombok
+        - Spring Data JPA
+        - H2 Database
+        - Spring Boot Dev Tools
+- @RestController
+    - fala pro spring que esta classa contem um endpoint
+    - é um javasarvlet, tem as operações put, get e assim por diante
+- @RequestinMapping("/api/courses")
+    - Caminho da nossa APi 
+- @Getmapping
+    - sinaliza que temos um metodo get
+- Lombok:
+    - @Getter
+        - Gera todos os Get's 
+    - @Setter
+        - Gera todos os Set's        
+    - @Data
+        - Gera todos os Get's, Sets e construturo da determinada classe.
+- @Entity
+    - Dizemos que esta entidade está amarrada ao banco de dados
+- @Table(name = "cursos")
+    - Dizemos que esta entidade está amarrada a uma tabela do banco de dados em especifica.     
+    - @Id
+        - Dizemos que aquele registro é o ID do banco
+    @GeneratedValue(strategy = GenerationType.AUTO)
+        - Dizemos que o ID vai gerar automaticamente
+- @Table(name = "cursos")
+    - Dizemos que esta entidade está amarrada a uma tabela do banco de dados em especifica. 
+    - @Id
+        - Dizemos que aquele registro é o ID do banco
+    - @GeneratedValue(strategy = GenerationType.AUTO)
+        - Dizemos que o ID vai gerar automaticamente
+    - @Column(name = "nome")
+        - Direcionamos par auma coluna do banco de dados especifica
+    - @Column(length = 200, nullable = false)
+- Com o lombok conseguimos replicar os objetos como se fossem entidades do banco de dados.
+- O lombok traz um controle e uma replicação mais segura para com o banco de dados.
+- Interaface traz uma facilidade para conexao com banco de dados
+
+- Serve para ajustar a nomenclatura de um campo para o outro (do front para o back):
+    ````java
+    @JsonProperty("_id")
+    ````
+
 # Estrutura Angular
 
 - para me organizar melhor vou escrever um fluxo de estruturas
@@ -109,3 +170,70 @@ httpclient
     - módulo para componentes genéricos
     - colcamos a propridade export dentro do módulo para então deixarmos o compoente genérico, para todos utilizarem.
 - 
+
+# Estrutura do spring
+
+- Java e maven instalados
+- spring initializaitor, para iniciar projeto com as dependencias. 
+
+- Controller
+    - Exemplo de Controller
+        ````java
+            @RestController                                
+            @RequestMapping("/api/courses")                
+            public class CourseController {                 
+                                                           
+                @GetMapping                                
+                public List<Course> List(){                
+                    return null;                           
+                }                                          
+            }                                              
+                                                           
+        ````
+
+- Model
+    - Exemplo de Model
+        ````java
+            package com.loiane.model;
+
+            import jakarta.persistence.*;
+            import lombok.Data;
+
+            @Data
+            @Entity
+            public class Course {
+
+                @Id
+                @GeneratedValue(strategy = GenerationType.AUTO)
+                private Long id;
+                @Column(length = 200, nullable = false)
+                private String name;
+                @Column(length = 200, nullable = false)
+                private String category;
+            }
+        ````
+- repository
+    - Interface
+    - exemplo de Repository
+        ````java
+            @Repository
+            public interface CourseRepository extends JpaRepository<Course, Long> {
+            }
+
+        ````
+- Service
+    - Lógica de Negocio
+    - Exemplo de Service
+        ````java
+
+        ````    
+
+
+# VSCode
+- Thunder Client
+    - Serve para termos um serviço para avalira nossas chamadas
+    - Muito simples de utilizar. 
+    - Cliente para utilizar apirest com visual studio code. 
+- Peacock
+    - Instalamos a extensão que muda o projeto de cor
+    - utilizamos o comando ctrl+shift+p para mudar a cor
