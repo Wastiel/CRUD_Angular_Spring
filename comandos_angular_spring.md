@@ -169,7 +169,35 @@ httpclient
 - ng g m shared/shared
     - módulo para componentes genéricos
     - colcamos a propridade export dentro do módulo para então deixarmos o compoente genérico, para todos utilizarem.
-- 
+- Queremos ajustar algum estilo em especifico, colocamos do seguinte maneira no scss do componente:
+    ````scss
+        .full-width{
+        width: 100%;
+        }
+
+        mat-card{
+        max-width: 80%;
+        margin: 2em auto;
+        text-align: center;
+
+        }
+
+        .min-width{
+        width: 100%;
+        min-width: 150px;
+        }
+
+    ````
+- Caso queiramos para tudo, colcamos dentro do scss global. 
+    - style.scss
+- Exemplo de inserção no backend
+    ````ts
+      save(record: Course){
+        console.log('record')
+        return this.httpClient.post<Course>(this.API, record).pipe(first());
+          }
+    ````
+
 
 # Estrutura do spring
 
@@ -237,3 +265,36 @@ httpclient
 - Peacock
     - Instalamos a extensão que muda o projeto de cor
     - utilizamos o comando ctrl+shift+p para mudar a cor
+
+# Atualizações
+
+## Angular:
+[Link Aula](https://youtu.be/OBU_K7jq0nM)
+- Vamos atualizar a versao do projeto
+- É comum atualizarmos o angular, por questões de segurança e novas funcionalidades.
+- Primeiramente vemos a versão do angular dentro do package.json
+    ````json
+        "@angular/cdk": "^16.2.14",
+    ````
+- Posterior vamos no site do angular, para buscar a atualização
+[Angular Update](https://update.angular.io/) 
+- Precisamos verificar a versão do node, conforme atualização. 
+    - Comando para verificar a versão do node:
+    - node -v
+    - No meu caso estou usando a versão 18.18
+- Temos que verificar a versão to TypeScript
+    - tsc -v
+    - No meu caso é a 5.2.2, então posso atualizar.
+- Rodamos um ng-update para mostrar quais os updates que temos que fazer. 
+- Pontos que temos que atualizar na nossa versão:
+      Name                               Version                  Command to update
+     --------------------------------------------------------------------------------
+      @angular/cdk                       16.2.14 -> 17.3.2        ng update @angular/cdk
+      @angular/cli                       16.2.13 -> 17.3.2        ng update @angular/cli
+      @angular/core                      16.2.12 -> 17.3.2        ng update @angular/core
+      @angular/material                  16.2.14 -> 17.3.2        ng update @angular/material
+
+- São ajsutados os apontamentos do package.json
+- Após as atualizações rodamos o ng-serve
+
+## Spring
