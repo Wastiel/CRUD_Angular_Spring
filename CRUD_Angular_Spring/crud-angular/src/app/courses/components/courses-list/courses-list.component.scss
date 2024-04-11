@@ -1,0 +1,15 @@
+.mat-table{
+  overflow: auto;// tamanho maximo da alttura
+  max-height: 600px;
+}
+// a classe abaixo serve para pegar os icones e jogar para a direita, dando mais espaço
+// para as demais colunas.
+
+.action-column{
+  flex: 0 0 150px;
+}
+
+.action-column-header{
+  flex: 0 0 120px;
+}
+
