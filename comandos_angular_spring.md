@@ -198,6 +198,31 @@ httpclient
           }
     ````
 
+Utilizamos ountyped form para crioação dos formulários angular vai fazer a inferencia do tS para tipar o formulário.
+
+    ````ts
+        import { FormBuilder, FormGroup, UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+          form: UntypedFormGroup
+          private formBuilder: UntypedFormBuilder,
+    ````
+
+- Readonly serve para setar que estes campos não vao ser alterados, esta é a forma final do campo
+
+- coursesComponent, smart component, vai ter a lógica de serviço com o daialog, e com o roteamento, vamos centrar tudo neste component, para facilitar os testes no futuro.
+
+- input é tudo que está vindo
+- output tudo que está saindo.
+
+- Com isto clicamos no onadd, que aponta para a nossa lista e carrega os elementos. 
+- Como não temos papel de testar a listagem de cursos em si, facilita o fluxo de testes.
+- Criando o nosso módulo, onde ele passa a ter varios componentes.
+- Criamos uma nova pasta chamada containers. 
+- Colocamos o nosso componente principal para dentro da pasta do container
+- Posterior criamos uma pasta chamda components e colocamos os nosso componentes, dentro desta extrutura. 
+- Onde fica o formulário?
+    - Seria um componente inteligente
+    - Seria para a pasta containers
+
 
 # Estrutura do spring
 
