@@ -11,6 +11,7 @@ export class CoursesListComponent {
 
   @Input() courses: Course[] = [];
   @Output() add = new EventEmitter(false)
+  @Output() edit = new EventEmitter(false)
 
   readonly displayedColumns = ['name', 'category', 'actions'];
 
@@ -24,6 +25,10 @@ export class CoursesListComponent {
   onAdd() {
     //this.router.navigate(['new'], {relativeTo: this.router_});
     this.add.emit(true);
+    }
+
+   ondEdit(course: Course){
+    this.edit.emit(course);
     }
 
 }
