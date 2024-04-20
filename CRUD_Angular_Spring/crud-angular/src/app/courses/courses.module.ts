@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CoursesListComponent } from './components/courses-list/courses-list.component';
 
 
+
 @NgModule({
   declarations: [
     CoursesComponent,

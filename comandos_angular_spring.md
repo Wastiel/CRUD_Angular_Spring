@@ -280,6 +280,34 @@ Utilizamos ountyped form para crioação dos formulários angular vai fazer a in
         ````java
 
         ````    
+- No spring podemos deletar de duas maneiras:
+    - Delete Físico
+      ````java
+        @DeleteMapping("/{id}")
+        public ResponseEntity<Void> delete(@PathVariable Long id){
+            return courseRepository.findById(id)
+                    .map(recordFound -> {
+                        courseRepository.deleteById(id);
+                        return ResponseEntity.noContent().<Void>build();
+                    })
+                    .orElse(ResponseEntity.notFound().build());
+        }
+    ````
+    - Delete Lógico.
+    ````java
+        @DeleteMapping("/{id}")
+        public ResponseEntity<Void> delete(@PathVariable Long id){
+            return courseRepository.findById(id)
+                .map(recordFound -> {
+                    recordFound.setName(course.getName());
+                    recordFound.setCategory(course.getCategory());
+                    Course updated = courseRepository.save(recordFound);
+                    return ResponseEntity.ok().body(updated);
+                })
+                .orElse(ResponseEntity.notFound().build());
+        }
+    ````
+
 
 
 # VSCode
